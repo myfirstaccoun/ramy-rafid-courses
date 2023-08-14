@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "build": "^0.1.4",
+    "connect-livereload": "^0.6.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "livereload": "^0.9.3",
+    "utf8": "^3.0.0",
+    "ytdl-core": "^4.11.5"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "watch": "nodemon --ext js,ejs --ignore public"
+  },
+  "engines": {
+    "node": "16.11.0"
+  },
+  "name": "alaa-hamed-courses",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "yusuf",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جميع الدورات</title>
+    <link data-default-icon="/public/صور/شعار.png" data-badged-icon="/public/صور/شعار.png" rel="shortcut icon" type="image/x-icon" href="/public/صور/شعار.png">
+</head>
+<body>
+    <% function search2D(arr, item, column_search = 0, column_result = 1) {
+        let res = [];
+        let i = 0;
+        while(i < arr.length) {
+            if(arr[i][column_search] == item)
+                res.push(arr[i][column_result]);
+            i++;
+        }
+
+        return res;
+    }
+ %>
+    <div class="main">
+        <div class="pic">
+            <img src="/public/صور/علاء حامد.png" alt="">
+        </div>
+
+        <h1 class="a">دورات المهندس</h1>
+        <h1 class="b">رامي فريد</h1>
+
+        <a href="https://www.youtube.com/@-alaahamed5232" class="youtube" target=”_blank”>يوتيوب</a>
+        <a href="https://www.facebook.com/3laaHamed" class="facebook" target=”_blank”>فيس بوك</a>
+        <a href="https://t.me/Eng_Alaa_Hamed" class="telegram" target=”_blank”>تيليجرام</a>
+    </div>
+
+    <div class="container">
+        <h1>الدورات</h1>
+    <% for(let i = 0; i < courses.length; i++) { %>
+    <% if(search2D(namesFiles, courses[i]) == 1) { %>
+        <article>
+            <h2> <%= courses[i] %> </h2>
+            <a href="/all-courses/<%= courses[i] %>" class="get-href"></a>
+            <img src="/public/صور/<%= courses[i] %>.png" alt="<%= courses[i] %>">
+        </article>
+    <% } %>
+    <% } %>
+    </div>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap');
+    
+    @keyframes colors {
+        0%   {box-shadow: 0 7px 17px 0 rgb(255 131 131 / 47%);}
+        50%  {box-shadow: 0 7px 17px 0 rgba(41, 152, 255, 0.47);}
+        100% {box-shadow: 0 7px 17px 0 rgb(255 131 131 / 47%);}
+    }
+
+    @keyframes borderColor {
+        0%, 100% {
+            border-right: 5px solid #0ff;
+            border-left: 5px solid #0ff;
+            border-bottom: 5px solid #ff0;
+            border-top: 5px solid #ff0;
+        }
+
+        50% {
+            border-bottom: 5px solid #0ff;
+            border-top: 5px solid #0ff;
+            border-left: 5px solid #ff0;
+            border-right: 5px solid #ff0;
+        }
+    }
+
+    body {
+        padding-bottom: 150px;
+        font-family: Tajawal;
+    }
+    
+    .main {
+        position: relative;
+        width: 400px;
+        height: 440px;
+        left: calc(50% - 200px);
+        min-height: 50px;
+        border-radius: 15px;
+        padding: 30px 0;
+        margin: 50px 0;
+        background-color: #b96565;
+        display: inline-block;
+        animation: colors 2s infinite;
+        transition: all .5s;
+    }
+
+    .main .pic {
+        position: absolute;
+        width: 176px;
+        height: 176px;
+        right: calc(50% - 102.5px);
+        margin: 10px;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 500px;
+        border: 1px solid #000;
+        box-shadow: 0 0 20px 0 rgba(255, 131, 131, 0.93);
+        animation: borderColor 3s infinite;
+    }
+    
+    .main h1 {
+        position: absolute;
+        display: inline-block;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .main h1.a {
+        top: 237px;
+    }
+    
+    .main h1.b {
+        top: 290px;
+    }
+
+    a:not(a.get-href) {
+        position: absolute;
+        margin: .5rem;
+        color: #3d4a59;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid #33557c;
+        padding: .375rem 20px;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .3rem;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all .5s;
+        text-transform: capitalize;
+
+        border: 1px solid #fff;
+        color: #fff;
+        box-shadow: 0 0 10px #9e4673;
+    }
+
+    a:not(a.get-href):hover {
+        background-color: #fc4364;
+        color: #fff;
+        font-size: 1.03rem;
+    }
+
+    .main a {
+        width: 30%;
+        bottom: 68px;
+    }
+    
+    .main a.youtube {
+        right: 11px;
+    }
+    
+    .main a.facebook {
+        left: 11px;
+    }
+    
+    .main a.telegram {
+        width: auto;
+        right: 11px;
+        left: 11px;
+        bottom: 14px!important;
+    }
+    
+    .main a.facebook:hover {
+        background-color: #395693;
+    }
+
+    .main a.telegram:hover {
+        background-color: #27a4e4;
+    }
+    
+    .container {
+        display: flex;
+        margin-right: auto;
+        margin-left: auto;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .container h1 {
+        background-color: #b96565;
+        width: 90%;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 15px;
+    }
+
+    article {
+        position: relative;
+        border: 1px solid red;
+        margin-bottom: 15px;
+        border-radius: 15px;
+        padding: 0px;
+        width: 480px;
+        height: 270px;
+        display: inline-block;
+        transition: all 1s;
+      }
+      
+    article:hover {
+        box-shadow: 10px 20px 10px 0 rgb(186 186 186 / 47%);
+        transform: scale(1.05);
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    article h2 {
+        color: transparent;
+    }
+    
+    article img {
+        position: absolute;
+        border-radius: 15px;
+        top: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    article a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border-radius: 15px;
+        border: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    @media (max-width: 510px) {
+        article {
+            width: 300px;
+            height: 168.5px;
+        }
+    }
+
+    @media(max-width: 450px) {
+        .main {
+            left: 5%;
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .main a.youtube, .main a.facebook {
+            width: 35%;
+            padding: .375rem 5px;
+        }
+    }
+</style>
+</html>
